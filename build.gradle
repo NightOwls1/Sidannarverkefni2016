@@ -19,6 +19,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+// Disable daemon, because contiuous integration
+org.gradle.daemon = false
+
 //Create an executable jar file
 //MODIFY
 jar {
@@ -29,4 +32,15 @@ jar {
     }
 }
 
+task build {
+    println "Building project..."
+}
+
+task clean {
+    println "Cleaning build file..."
+}
+//Modify to make swag
+task test {
+    println "Running test suite..."
+}
 */
