@@ -5,4 +5,3 @@
 #####Vinnusamkomulag (working aggrements)
 #####Configuration mgmt progress
 #####Þróunarumhvefi(Development environment)
-- ......
