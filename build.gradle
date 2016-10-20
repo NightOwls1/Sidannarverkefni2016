@@ -49,4 +49,9 @@ task clean {
 task test {
     println "Running test suite..."
 }
+
+task stage {
+  dependsOn clean, build
+  }
+
 */
