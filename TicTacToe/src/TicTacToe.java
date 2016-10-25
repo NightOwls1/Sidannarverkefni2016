@@ -15,8 +15,6 @@ public class TicTacToe {
 		board = new Board(this);
 		mode = 0;
 		players = new Player[2];
-		players[0] = player1;
-		players[1] = player2;
 	}
 	public Board getBoard(){ return board; }
 	public Player[] getPlayers(){ return players; }
@@ -28,7 +26,19 @@ public class TicTacToe {
 		return false;
 	}
 	public boolean keepPlaying(){
+		//System.err.println(!gameOver() && !board.boardFull());
 		return (!gameOver() && !board.boardFull());
+	}
+	public void setPlayers(String s){
+		player1 = new Player(s, this);
+		if(s.contains("X"))
+			player2 = new Player("O", this);
+		else
+			player2 = new Player("X", this);
+		
+		players[0] = player1;
+		players[1] = player2;
+
 	}
 	public void multiPlayerPlay() throws InterruptedException, IOException{
 		try{
@@ -39,12 +49,7 @@ public class TicTacToe {
 			board.showBoard();
 			System.out.println("Please choose if you want to be X or O");
 			String s = br.readLine();
-			player1 = new Player(s, this);
-			if(s.contains("X"))
-				player2 = new Player("O", this);
-			else
-				player2 = new Player("X", this);
-					
+			setPlayers(s);
 			board.showBoard();
 			while(keepPlaying()){
 				System.out.println("Where do you want to put your " + player1.getSymbol() + "?");
@@ -54,10 +59,14 @@ public class TicTacToe {
 				player1.makeMove(Integer.valueOf(move));
 				board.showBoard();
 				//System.out.println(game.win());
+				if(keepPlaying()){
+				
+				
 				System.out.println("Where do you want to put your " + player2.getSymbol() + "?");
 				move = br.readLine();
 				//System.out.println(move);
 				player2.makeMove(Integer.valueOf(move));
+				}
 				board.showBoard();
 
 			}
