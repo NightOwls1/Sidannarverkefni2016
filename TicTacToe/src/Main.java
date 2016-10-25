@@ -20,15 +20,15 @@ public class Main {
 			
 			game.setPlayer1(br.readLine());
 			game.showBoard();
-			while(/*game.keepPlaying()*/true){
-				//System.out.println("Where do you want to put your " + "X" + "?");
+			while(game.keepPlaying()){
+				System.out.println("Where do you want to put your " + "X" + "?");
 				move = br.readLine();
 				//System.in.read();
 				//System.out.println(move);
 				game.makeMove(Integer.valueOf(move), " X");
 				game.showBoard();
 				//System.out.println(game.win());
-				//System.out.println("Where do you want to put your " + "O" + "?");
+				System.out.println("Where do you want to put your " + "O" + "?");
 				move = br.readLine();
 				//System.out.println(move);
 				game.makeMove(Integer.valueOf(move), " O");

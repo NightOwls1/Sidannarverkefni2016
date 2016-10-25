@@ -26,6 +26,11 @@ public class UnitTest {
 		else 
 			result += " :( Make Move Failed \n";
 		
+		if(testBoardFull())
+			result += "Board full Successfull! :) \n";
+		else 
+			result += " :( board full Failed \n";
+		
 		return result;
 	}
 	public String generateTestSet(String testCase)
@@ -117,5 +122,28 @@ public class UnitTest {
 		
 				
 		return flag;
+	}
+	public boolean testBoardFull(){
+		boolean flag1 = false;
+		boolean flag2 = false;
+		boolean flag3 = false;
+		game.showBoard();
+		if(game.boardFull())
+			flag1 = true;
+		game = new TicTacToe();
+		if(!game.boardFull())
+			flag2 = true;
+		
+		Integer m = Integer.valueOf(21);
+		game.makeMove(m, "X");
+		m = Integer.valueOf(22);
+		game.makeMove(m, "O");
+		m = Integer.valueOf(10);
+		game.makeMove(m, "X");
+
+		if(!game.boardFull())
+			flag3 = true;
+		
+		return flag1 && flag2 && flag3;
 	}
 }

@@ -20,13 +20,10 @@ public class TicTacToe {
 						
 			
 	}
-	public void makeBoard(){
-
-
-	}
-	public String[][] getBoard(){ return board; }
 	private String player;
 	private String winner;
+
+	public String[][] getBoard(){ return board; }
 	public String getPlayer(){ return player; }
 	public void setPlayer1(String p1){ 
 		player = p1;
