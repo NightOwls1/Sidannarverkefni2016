@@ -54,6 +54,11 @@ public class UnitTest {
 			result += "Make move Successfull! :) \n";
 		else
 			result += ":( make move failed \n";
+/* ###################### UPDATED MAKE MOVE #################*/
+		if(testPlayerMove())
+			result += "Player move Successfull! \n";		
+		else
+			result += ":( player move failed \n";
 		return result;
 	}
 	public String generateTestSet(String testCase)
@@ -288,6 +293,38 @@ public class UnitTest {
 		//System.out.println(temp);	
 		return flag1 && flag2;
 	
+	}
+	public boolean testPlayerMove(){
+		boolean flag = true;
+		game = new TicTacToe();
+		String[][] desired = new String[3][3];
+		game.setPlayers("X");
+		game.getPlayers()[0].makeMove(Integer.valueOf(10));
+		game.getPlayers()[1].makeMove(Integer.valueOf(10));
+		game.getPlayers()[1].makeMove(Integer.valueOf(12));
+		game.getPlayers()[0].makeMove(Integer.valueOf(21));
+		game.getPlayers()[1].makeMove(Integer.valueOf(22));
+		game.getPlayers()[0].makeMove(Integer.valueOf(31));
+		
+		desired[0][0] = "X";
+		desired[0][1] = "11";
+		desired[0][2] = "O";
+		desired[1][0] = "20";
+		desired[1][1] = "X";
+		desired[1][2] = "O";
+		desired[2][0] = "30";
+		desired[2][1] = "X";
+		desired[2][2] = "32";
+		for(int i = 0; i<3; i++){
+			for(int j=0; j<3; j++){
+				if(!game.getBoard().getArray()[i][j].contains(desired[i][j]))
+					flag = false;
+				
+			}
+		}
+				
+				
+		return flag;
 	}
 
 }
