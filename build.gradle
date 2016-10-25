@@ -32,6 +32,13 @@ jar {
     }
 }
 
+tasks.whenTaskAdded { task ->
+    task.ext.srcDir = 'src/main/java'
+}
+
+task task1 {
+    println "Some string"
+}
 //None of this does anything as of yet
 task build {
     doFirst {
@@ -50,8 +57,8 @@ task test {
     println "Running test suite..."
 }
 
-task stage {
-  dependsOn clean, build
-  }
+task stage(dependsOn clean, build) {
+    println "staging..."
+}
 
 */
