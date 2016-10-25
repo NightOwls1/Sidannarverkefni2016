@@ -26,12 +26,19 @@ org.gradle.daemon = false
 //MODIFY
 jar {
     manifest {
-        'Main-Class': 'com.stuff.things.main' 
+        'Main-Class': '/TicTacToe/src/Main.java' 
 	 attributes(
         "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
     }
 }
 
+tasks.whenTaskAdded { task ->
+    task.ext.srcDir = 'src/main/java'
+}
+
+task task1 {
+    println "Some string"
+}
 //None of this does anything as of yet
 task build {
     doFirst {
@@ -50,8 +57,8 @@ task test {
     println "Running test suite..."
 }
 
-task stage {
-  dependsOn clean, build
-  }
+task stage(dependsOn clean, build) {
+    println "staging..."
+}
 
 */
