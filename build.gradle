@@ -32,8 +32,14 @@ jar {
     }
 }
 
+//None of this does anything as of yet
 task build {
-    println "Building project..."
+    doFirst {
+	println "Building project..."
+    }
+    doLast {
+        println "done!"
+    }
 }
 
 task clean {
@@ -43,4 +49,9 @@ task clean {
 task test {
     println "Running test suite..."
 }
+
+task stage {
+  dependsOn clean, build
+  }
+
 */
