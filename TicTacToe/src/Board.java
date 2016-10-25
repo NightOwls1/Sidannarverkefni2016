@@ -31,17 +31,24 @@ public class Board {
 		}
 		
 	}
-	public void makeMove(Integer dig1, String pl)
+	public String makeMove(Integer dig1, String pl)
 	{
+		
 		int dig = dig1.intValue();
 		//System.out.println("digit = " + dig);
 		int i = dig/10 -1;
 		int j = dig%10;
 		//System.out.println("i = " + i);
 		//System.out.println("j = " + j);
-		board[i][j] = pl;
-		seen[i][j] = true;
-				
+		if(emptyTile(i,j)){
+			board[i][j] = pl;
+			seen[i][j] = true;
+			return "";
+		}
+
+		return "Illegal move X(!\n";
+		
+			
 	}
 	public boolean boardFull(){
 		for(int i=0;i<3;i++){

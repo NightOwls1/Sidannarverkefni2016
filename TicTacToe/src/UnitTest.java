@@ -49,7 +49,11 @@ public class UnitTest {
 			result += "Tile check Successfull! :) \n";
 		else
 			result += ":( tile check failed \n";
-
+/* ###################### UPDATED MAKE MOVE #################*/
+		if(testUpdatedMakeMove())
+			result += "Make move Successfull! :) \n";
+		else
+			result += ":( make move failed \n";
 		return result;
 	}
 	public String generateTestSet(String testCase)
@@ -90,6 +94,9 @@ public class UnitTest {
 				
 	}
 	public boolean testMakeMove(){
+		game  = new TicTacToe();
+		
+		
 		boolean flag = true;
 		Integer[] move = new Integer[9];
 		
@@ -244,5 +251,43 @@ public class UnitTest {
 */
 		return flag1 && flag2 && flag3;
 	}
+	public boolean testUpdatedMakeMove(){
+		game = new TicTacToe();
+
+		String temp = "";
+		boolean flag1 = true;
+		boolean flag2 = true;
+		Integer[] move = new Integer[9];
+		
+		move[0] = Integer.valueOf(10);
+		move[1] = Integer.valueOf(11);
+		move[2] = Integer.valueOf(12);
+		move[3] = Integer.valueOf(20);
+		move[4] = Integer.valueOf(21);
+		move[5] = Integer.valueOf(22);
+		move[6] = Integer.valueOf(30);
+		move[7] = Integer.valueOf(31);
+		move[8] = Integer.valueOf(32);
+
+		temp += game.getBoard().makeMove(move[0], "O");
+
+		temp += game.getBoard().makeMove(move[1], "X");
+
+		if(temp.contains("Illegal move"))
+			flag1 = false;
+		
+		temp += game.getBoard().makeMove(move[2], "O");
+		
+		temp += game.getBoard().makeMove(move[2], "X");
+		
+		temp += game.getBoard().makeMove(move[4], "O");
+		
+		if(!temp.contains("Illegal move"))
+			flag2 = false;
+		
+		//System.out.println(temp);	
+		return flag1 && flag2;
 	
+	}
+
 }
