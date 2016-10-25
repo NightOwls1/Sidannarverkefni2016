@@ -44,6 +44,11 @@ public class UnitTest {
 			result += "Diagonal check Successfull! :) \n";
 		else
 			result += ":( diagonal check failed \n";
+/* ###################### TILE CHECK #################*/
+		if(testCheckTile())
+			result += "Tile check Successfull! :) \n";
+		else
+			result += ":( tile check failed \n";
 
 		return result;
 	}
@@ -216,6 +221,28 @@ public class UnitTest {
 
 		return flag1 && flag2;
 
+	}
+	public boolean testCheckTile(){
+		boolean flag1 = true;
+		boolean flag2 = true;
+		boolean flag3 = true;
+		game = new TicTacToe();
+		game.getBoard().makeMove(Integer.valueOf(10), "X");
+		if(game.getBoard().emptyTile(0,0))
+			flag1 = false;
+		game.getBoard().makeMove(Integer.valueOf(11), "O");
+		if(game.getBoard().emptyTile(0,1))
+			flag2 = false;
+
+		game.getBoard().makeMove(Integer.valueOf(12), "X");
+		if(!game.getBoard().emptyTile(1,1))
+			flag3 = false;
+/*
+*		System.err.println(flag1);
+*		System.err.println(flag2);
+*		System.err.println(flag3);
+*/
+		return flag1 && flag2 && flag3;
 	}
 	
 }

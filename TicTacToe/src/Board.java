@@ -94,6 +94,12 @@ public class Board {
 		}
 		return false;
 	}
+	
+	public boolean emptyTile(int i, int j){
+		if(board[i][j].contains("X") || board[i][j].contains("O"))
+			return false;
+		return true;
+	}
 
 
 
