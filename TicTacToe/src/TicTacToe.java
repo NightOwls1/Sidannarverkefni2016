@@ -7,18 +7,26 @@ public class TicTacToe {
 	public TicTacToe()
 	{
 		board = new String[3][3];
-		
+		makeBoard();
+
+						
+			
+	}
+	private void makeBoard(){
 		int sq = 48;
 		for(int i=0;i<3;i++)
 			for(int j=0;j<3;j++){
 				sq = (i+1)*10 + j;
-				board[i][j] = String.valueOf(sq); 
-						
+				board[i][j] = String.valueOf(sq);
 			}
 	}
 	private String player;
 	private String winner;
-	public void showBoard()
+	public void setPlayer1(String p1){ 
+		player = p1;
+	System.out.println("You are player " + player);
+	}
+public void showBoard()
 	{
 		System.out.println("--------");
 		for(int i=0;i<3;i++){
@@ -43,8 +51,8 @@ public class TicTacToe {
 	public boolean boardFull(){
 		for(int i=0;i<3;i++){
 			for(int j=0; j<3; j++){
-				if(!board[i][j].equals("X")
-						|| !board[i][j].equals("O"))
+				if(!board[i][j].contains("X")
+						|| !board[i][j].contains("O"))
 					return false;
 			}
 		}
@@ -76,7 +84,8 @@ public class TicTacToe {
 		if((board[1][1] == board[0][0] && board[0][0] == board[2][2])
 				|| (board[1][1] == board[0][2] && board[0][2]==board[2][0]))
 			return true;
-			
+		if(boardFull())
+			return true;
 		return false;
 	}
 	public String win(){
@@ -92,36 +101,13 @@ public class TicTacToe {
 			return "The winner is player O!";
 		return "Something unexpected has happened :/ ";
 	}
+	public boolean keepPlaying(){
+		return (!gameOver() && !boardFull());
+	}
 	public void play() throws InterruptedException, IOException{
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String move = "";
-		System.out.println("Welcome to TicTacToe!");
-		showBoard();
-		System.out.println("Please choose if you want to be X or O");
-		
-		player = br.readLine();
-		System.out.println("You are player " + player);
-		showBoard();
-		while(!gameOver() && !boardFull()){
-			System.out.println("Where do you want to put your " + "X" + "?");
-			//br.wait();
-			move = br.readLine();
-			//System.in.read();
-			System.out.println(move);
-			makeMove(Integer.valueOf(move), " X");
-			showBoard();
-			System.out.println(win());
-			System.out.println("Where do you want to put your " + "O" + "?");
-			//br.wait();
-			move = br.readLine();
-			//System.in.read();
-			System.out.println(move);
-			makeMove(Integer.valueOf(move), " O");
-			showBoard();
-			System.out.println(win());
-
-		}
+//		showBoard();
+//		showBoard();
 	}
 
 }
