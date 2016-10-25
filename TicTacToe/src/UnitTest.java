@@ -14,31 +14,37 @@ public class UnitTest {
 	}
 	public String testMain(){
 		String result = "";
+/* ###################### BOARD INITIATION #################*/
 		if(testMakeBoard())
 			result += "Make Board Successfull! :) \n";
 		else 
 			result += " :( Make Board Failed \n";
-		
+/* ###################### MAKING MOVE #################*/		
 		if(testMakeMove())
 			result += "Make Move On Board Successfull! :) \n";
 		else 
 			result += " :( Make Move On Board Failed \n";
-		
+/* ###################### BOARD FULL #################*/		
 		if(testBoardFull())
 			result += "Board full Successfull! :) \n";
 		else 
 			result += " :( board full Failed \n";
-		
+/* ###################### HORIZONTAL CHECK #################*/		
 		if(testHorizontalCheck())
 			result += "Horizontal check Successfull! :) \n";
 		else
 			result += ":( horizontal check failed \n";
-
+/* ###################### VERTIVAL CHECK #################*/
 		if(testVerticalCheck())
 			result += "Vertical check Successfull! :) \n";
 		else
 			result += ":( vertical check failed \n";
-			
+/* ###################### DIAGONAL CHECK #################*/
+		if(testVerticalCheck())
+			result += "Diagonal check Successfull! :) \n";
+		else
+			result += ":( diagonal check failed \n";
+
 		return result;
 	}
 	public String generateTestSet(String testCase)
@@ -194,7 +200,22 @@ public class UnitTest {
 		return flag1 && flag2;
 	}
 	public boolean testDiagonalCheck(){
-		return true;
+		game = new TicTacToe();
+		game.setPlayers("X");
+		boolean flag1 = true;
+		boolean flag2 = true;
+		game.getBoard().makeMove(Integer.valueOf(10), "X");
+		game.getBoard().makeMove(Integer.valueOf(11), "O");
+		game.getBoard().makeMove(Integer.valueOf(21), "X");
+		game.getBoard().makeMove(Integer.valueOf(12), "O");
+		if(game.getBoard().horizontal())
+			flag1 = false;
+		game.getBoard().makeMove(Integer.valueOf(32), "X");	
+		if(!game.getBoard().horizontal())
+			flag2 = false;
+
+		return flag1 && flag2;
+
 	}
 	
 }
