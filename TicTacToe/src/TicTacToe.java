@@ -7,26 +7,32 @@ public class TicTacToe {
 	public TicTacToe()
 	{
 		board = new String[3][3];
-		makeBoard();
-
-						
-			
-	}
-	private void makeBoard(){
 		int sq = 48;
-		for(int i=0;i<3;i++)
+
+		for(int i=0;i<3;i++){
+
 			for(int j=0;j<3;j++){
 				sq = (i+1)*10 + j;
 				board[i][j] = String.valueOf(sq);
 			}
+		}
+
+						
+			
 	}
+	public void makeBoard(){
+
+
+	}
+	public String[][] getBoard(){ return board; }
 	private String player;
 	private String winner;
+	public String getPlayer(){ return player; }
 	public void setPlayer1(String p1){ 
 		player = p1;
 	System.out.println("You are player " + player);
 	}
-public void showBoard()
+	public void showBoard()
 	{
 		System.out.println("--------");
 		for(int i=0;i<3;i++){
@@ -39,11 +45,11 @@ public void showBoard()
 	public void makeMove(Integer dig1, String pl)
 	{
 		int dig = dig1.intValue();
-		System.out.println("digit = " + dig);
+		//System.out.println("digit = " + dig);
 		int i = dig/10 -1;
 		int j = dig%10;
-		System.out.println("i = " + i);
-		System.out.println("j = " + j);
+		//System.out.println("i = " + i);
+		//System.out.println("j = " + j);
 		board[i][j] = pl;
 
 				
@@ -78,11 +84,15 @@ public void showBoard()
 		}
 		return false;
 	}
-	public boolean gameOver(){
-		if(vertical() || horizontal())
+	public boolean diagonal(){
+		if(
+				(board[1][1] == board[0][0] && board[0][0] == board[2][2]) ||
+				(board[1][1] == board[0][2] && board[0][2] == board[2][2]))
 			return true;
-		if((board[1][1] == board[0][0] && board[0][0] == board[2][2])
-				|| (board[1][1] == board[0][2] && board[0][2]==board[2][0]))
+		return false;
+	}
+public boolean gameOver(){
+		if(vertical() || horizontal() || diagonal())
 			return true;
 		if(boardFull())
 			return true;
