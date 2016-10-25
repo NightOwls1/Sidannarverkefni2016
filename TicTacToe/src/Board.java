@@ -2,17 +2,21 @@
 public class Board {
 	private String[][] board;
 	private TicTacToe game;
+	private boolean[][] seen;
+	
 	public Board(TicTacToe g)
 	{		
 		game = g;
 		board = new String[3][3];
 		int sq = 48;
+		seen = new boolean[3][3];
 
 		for(int i=0;i<3;i++){
 
 			for(int j=0;j<3;j++){
 				sq = (i+1)*10 + j;
 				board[i][j] = String.valueOf(sq);
+				seen[i][j] = false;
 			}
 		}
 	}
@@ -36,14 +40,13 @@ public class Board {
 		//System.out.println("i = " + i);
 		//System.out.println("j = " + j);
 		board[i][j] = pl;
-
+		seen[i][j] = true;
 				
 	}
 	public boolean boardFull(){
 		for(int i=0;i<3;i++){
 			for(int j=0; j<3; j++){
-				if(!board[i][j].contains("X")
-						|| !board[i][j].contains("O"))
+				if(!seen[i][j])
 					return false;
 			}
 		}
@@ -81,6 +84,7 @@ public class Board {
 		if(
 				(board[1][1] == board[0][0] && board[0][0] == board[2][2]) ||
 				(board[1][1] == board[0][2] && board[0][2] == board[2][2])){
+			
 			if(board[1][1] == game.getPlayers()[0].getSymbol())
 				game.getPlayers()[0].asWinner();
 			else
