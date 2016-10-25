@@ -2,17 +2,15 @@
 public class UnitTest {
 	public String testStr;
 	public TicTacToe game;
-	public String[][] testBoard;
+	public Board testBoard;
 	
 	public UnitTest()
 	{
 		testStr = "$"; 
 		game = new TicTacToe();
-		testBoard = new String[3][3];
-		for(int i=0;i<3;i++){
-			for(int j=0; j<3;j++)
-				testBoard[i][j] = game.getBoard()[i][j];
-			}
+		testBoard = game.getBoard();
+		
+		
 	}
 	public String testMain(){
 		String result = "";
@@ -22,9 +20,9 @@ public class UnitTest {
 			result += " :( Make Board Failed \n";
 		
 		if(testMakeMove())
-			result += "Make Move Successfull! :) \n";
+			result += "Make Move On Board Successfull! :) \n";
 		else 
-			result += " :( Make Move Failed \n";
+			result += " :( Make Move On Board Failed \n";
 		
 		if(testBoardFull())
 			result += "Board full Successfull! :) \n";
@@ -61,7 +59,7 @@ public class UnitTest {
 		for(int i =0; i<3; i++){
 			for(int j=0; j<3; j++){
 				//System.out.println(testBoard[i][j] + "test is desired "+ desiredBoard[i][j]);
-				if(!testBoard[i][j].equals(desiredBoard[i][j])){
+				if(!testBoard.getArray()[i][j].equals(desiredBoard[i][j])){
 					flag = false;
 				}
 			}
@@ -84,40 +82,40 @@ public class UnitTest {
 		move[7] = Integer.valueOf(31);
 		move[8] = Integer.valueOf(32);
 
-		game.makeMove(move[0], "O");
-		if(!game.getBoard()[0][0].contains("O"))
+		game.getBoard().makeMove(move[0], "O");
+		if(!game.getBoard().getArray()[0][0].contains("O"))
 			flag = false;
 
-		game.makeMove(move[1], "X");
-		if(!game.getBoard()[0][0].contains("O"))
+		game.getBoard().makeMove(move[1], "X");
+		if(!game.getBoard().getArray()[0][0].contains("O"))
 			flag = false;
 
-		game.makeMove(move[2], "O");
-		if(!game.getBoard()[0][0].contains("O"))
+		game.getBoard().makeMove(move[2], "O");
+		if(!game.getBoard().getArray()[0][0].contains("O"))
 			flag = false;
 		
-		game.makeMove(move[3], "X");
-		if(!game.getBoard()[0][0].contains("O"))
+		game.getBoard().makeMove(move[3], "X");
+		if(!game.getBoard().getArray()[0][0].contains("O"))
 			flag = false;
 		
-		game.makeMove(move[4], "O");
-		if(!game.getBoard()[0][0].contains("O"))
+		game.getBoard().makeMove(move[4], "O");
+		if(!game.getBoard().getArray()[0][0].contains("O"))
 			flag = false;
 		
-		game.makeMove(move[5], "X");
-		if(!game.getBoard()[0][0].contains("O"))
+		game.getBoard().makeMove(move[5], "X");
+		if(!game.getBoard().getArray()[0][0].contains("O"))
 			flag = false;
 		
-		game.makeMove(move[6], "O");
-		if(!game.getBoard()[0][0].contains("O"))
+		game.getBoard().makeMove(move[6], "O");
+		if(!game.getBoard().getArray()[0][0].contains("O"))
 			flag = false;
 		
-		game.makeMove(move[7], "X");
-		if(!game.getBoard()[0][0].contains("O"))
+		game.getBoard().makeMove(move[7], "X");
+		if(!game.getBoard().getArray()[0][0].contains("O"))
 			flag = false;
 		
-		game.makeMove(move[8], "O");
-		if(!game.getBoard()[0][0].contains("O"))
+		game.getBoard().makeMove(move[8], "O");
+		if(!game.getBoard().getArray()[0][0].contains("O"))
 			flag = false;
 		
 				
@@ -127,21 +125,21 @@ public class UnitTest {
 		boolean flag1 = false;
 		boolean flag2 = false;
 		boolean flag3 = false;
-		game.showBoard();
-		if(game.boardFull())
+		game.getBoard().showBoard();
+		if(game.getBoard().boardFull())
 			flag1 = true;
 		game = new TicTacToe();
-		if(!game.boardFull())
+		if(!game.getBoard().boardFull())
 			flag2 = true;
 		
 		Integer m = Integer.valueOf(21);
-		game.makeMove(m, "X");
+		game.getBoard().makeMove(m, "X");
 		m = Integer.valueOf(22);
-		game.makeMove(m, "O");
+		game.getBoard().makeMove(m, "O");
 		m = Integer.valueOf(10);
-		game.makeMove(m, "X");
+		game.getBoard().makeMove(m, "X");
 
-		if(!game.boardFull())
+		if(!game.getBoard().boardFull())
 			flag3 = true;
 		
 		return flag1 && flag2 && flag3;

@@ -3,118 +3,71 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class TicTacToe {
-	private String[][] board;
+	private Board board;
+	private Player player1;
+	private Player player2;
+	private ComputerPlayer cPlayer;
+	private int mode;
+	private Player[] players;
+	
 	public TicTacToe()
 	{
-		board = new String[3][3];
-		int sq = 48;
-
-		for(int i=0;i<3;i++){
-
-			for(int j=0;j<3;j++){
-				sq = (i+1)*10 + j;
-				board[i][j] = String.valueOf(sq);
-			}
-		}
-
-						
-			
+		board = new Board(this);
+		mode = 0;
+		players = new Player[2];
+		players[0] = player1;
+		players[1] = player2;
 	}
-	private String player;
-	private String winner;
-
-	public String[][] getBoard(){ return board; }
-	public String getPlayer(){ return player; }
-	public void setPlayer1(String p1){ 
-		player = p1;
-	System.out.println("You are player " + player);
-	}
-	public void showBoard()
-	{
-		System.out.println("--------");
-		for(int i=0;i<3;i++){
-			for(int j=0;j<3;j++)
-				System.out.print(board[i][j] + " ");
-			System.out.println();
-		}
-		
-	}
-	public void makeMove(Integer dig1, String pl)
-	{
-		int dig = dig1.intValue();
-		//System.out.println("digit = " + dig);
-		int i = dig/10 -1;
-		int j = dig%10;
-		//System.out.println("i = " + i);
-		//System.out.println("j = " + j);
-		board[i][j] = pl;
-
-				
-	}
-	public boolean boardFull(){
-		for(int i=0;i<3;i++){
-			for(int j=0; j<3; j++){
-				if(!board[i][j].contains("X")
-						|| !board[i][j].contains("O"))
-					return false;
-			}
-		}
-		return true;
-	}
-	public boolean horizontal(){
-		for(int i=0;i<3;i++){
-			if(board[i][0]==board[i][1]
-					&& board[i][1]==board[i][2]){
-				winner = board[i][1];
-				return true;
-				}
-		}
-		return false;
-	}
-	public boolean vertical(){
-		for(int j=0;j<3;j++){
-			if(board[0][j]==board[1][j]
-				&& board[1][j]==board[2][j]){
-				winner = board[2][j];
-				return true;
-				}
-		}
-		return false;
-	}
-	public boolean diagonal(){
-		if(
-				(board[1][1] == board[0][0] && board[0][0] == board[2][2]) ||
-				(board[1][1] == board[0][2] && board[0][2] == board[2][2]))
+	public Board getBoard(){ return board; }
+	public Player[] getPlayers(){ return players; }
+	public boolean gameOver(){
+		if(board.vertical() || board.horizontal() || board.diagonal())
+			return true;
+		if(board.boardFull())
 			return true;
 		return false;
-	}
-public boolean gameOver(){
-		if(vertical() || horizontal() || diagonal())
-			return true;
-		if(boardFull())
-			return true;
-		return false;
-	}
-	public String win(){
-		if(!gameOver())
-			return "Keep playing";
-		else if(boardFull())
-			return "No one won :( ";
-		if(vertical() || horizontal())
-			return "The winner is player " + winner + "!";
-		if(board[1][1].contains("X"))
-			return "The winner is player X!";
-		if(board[1][1].contains("O"))
-			return "The winner is player O!";
-		return "Something unexpected has happened :/ ";
 	}
 	public boolean keepPlaying(){
-		return (!gameOver() && !boardFull());
+		return (!gameOver() && !board.boardFull());
 	}
-	public void play() throws InterruptedException, IOException{
+	public void multiPlayerPlay() throws InterruptedException, IOException{
+		try{
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			String move = "";
+			System.out.println("Welcome to TicTacToe!");
 
-//		showBoard();
-//		showBoard();
+			board.showBoard();
+			System.out.println("Please choose if you want to be X or O");
+			String s = br.readLine();
+			player1 = new Player(s, this);
+			if(s.contains("X"))
+				player2 = new Player("O", this);
+			else
+				player2 = new Player("X", this);
+					
+			board.showBoard();
+			while(keepPlaying()){
+				System.out.println("Where do you want to put your " + player1.getSymbol() + "?");
+				move = br.readLine();
+				//System.in.read();
+				//System.out.println(move);
+				player1.makeMove(Integer.valueOf(move));
+				board.showBoard();
+				//System.out.println(game.win());
+				System.out.println("Where do you want to put your " + player2.getSymbol() + "?");
+				move = br.readLine();
+				//System.out.println(move);
+				player2.makeMove(Integer.valueOf(move));
+				board.showBoard();
+
+			}
+
+
+		}catch(IOException e1){
+			System.err.println(e1.getMessage());
+			System.err.println(e1.getStackTrace());
+		}
+
 	}
 
 }
