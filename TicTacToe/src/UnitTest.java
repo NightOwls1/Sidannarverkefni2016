@@ -20,4 +20,8 @@ public class UnitTest {
 		//game.showBoard();
 		return "test successful";
 	}
+	public boolean testTicTacToe(){
+		game = new TicTacToe();
+		return true;
+	}
 }
