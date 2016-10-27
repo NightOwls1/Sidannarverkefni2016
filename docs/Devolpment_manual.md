@@ -6,10 +6,10 @@
 	   - Inná þessari slóð getur þú fundið þá útgáfu af git sem þú þarf að setja upp í tölvunni þinni.
 	2. Opnaðu git skelina í tölvunni.
 	3. Veldu þér notendanafn fyrir git. Skrifaðu allt á eftir $ hérna:
-	![](img/git.1.jpg?raw=true)
+![](img/git.1.jpg?raw=true)
 
 	4. Sláðu inn vefpóstfangið þitt sem mun tengjast þínum git breytingum. Skrifaðu allt á eftir $ hérna:
-	![](img/git.2.jpg?raw=true)
+![](img/git.2.jpg?raw=true)
 
 
 Til þess að geta unnið í verkefninu þarft þú að vera búin(n) að fá aðgang inná git repositoryið. Þú ferð inn á www.github.com og klónar
