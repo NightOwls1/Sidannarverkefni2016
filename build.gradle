@@ -44,7 +44,7 @@ task1 {
     }
 =======
 task assemble {
-    gradle assemble
+   ./gradlew assemble
 }
 
 task task1 {
