@@ -35,12 +35,21 @@ tasks.whenTaskAdded { task ->
     task.ext.srcDir = 'src/main/java'
 }
 
+<<<<<<< HEAD
 task task1
 
 task1 {
     doFirst {
         println "Hello, World!"
     }
+=======
+task assemble {
+    gradle assemble
+}
+
+task task1 {
+    println "Some string"
+>>>>>>> eefd21caad3d219ff340aa8884bdbe99e2057029
 }
 
 //None of this does anything as of yet
