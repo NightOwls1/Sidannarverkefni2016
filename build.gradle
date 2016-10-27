@@ -5,7 +5,8 @@ description = 'TicTacToe'
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
-    github repo uri: 'https://github.com/NightOwls1/Sidannarverkefni2016.git'
+    //github repo url: 'https://github.com/NightOwls1/Sidannarverkefni2016.git'
+    maven { url "https://jitpack.io" }
     jcenter()
 }
 
@@ -13,21 +14,20 @@ repositories {
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'
-
+    compile 'com.github.NightOwls1:Sidannarverkefni2016.git'
     // Declare the dependency for your favourite test framework you want to use in your tests.
     testCompile 'junit:junit:4.12'
 }
 
 // Disable daemon, because contiuous integration
-org.gradle.daemon = false
+//org.gradle.daemon = false
 
 //Create an executable jar file
 //MODIFY
 jar {
     manifest {
-        'Main-Class': '/TicTacToe/src/Main.java' 
-	 attributes(
-        "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+        attributes('Main-Class': '/TicTacToe/src/Main.java')
+        //"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
     }
 }
 
@@ -35,41 +35,8 @@ tasks.whenTaskAdded { task ->
     task.ext.srcDir = 'src/main/java'
 }
 
-<<<<<<< HEAD
-task task1
 
-task1 {
-    doFirst {
-        println "Hello, World!"
-    }
-=======
-task assemble {
-   ./gradlew assemble
-}
-
-task task1 {
-    println "Some string"
->>>>>>> eefd21caad3d219ff340aa8884bdbe99e2057029
-}
 
 //None of this does anything as of yet
-task build {
-    doFirst {
-	println "Building project..."
-    }
-    doLast {
-        println "done!"
-    }
-}
 
-task clean {
-    println "Cleaning build file..."
-}
 //Modify to make swag
-task test {
-    println "Running test suite..."
-}
-
-task stage(dependsOn clean, build) {
-    println "staging..."
-}
