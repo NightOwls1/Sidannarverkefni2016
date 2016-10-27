@@ -5,7 +5,7 @@ description = 'TicTacToe'
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
-    github repo uri: 'https://github.com/NightOwls1/Sidannarverkefni2016.git'
+    github repo url: 'https://github.com/NightOwls1/Sidannarverkefni2016.git'
     jcenter()
 }
 
@@ -35,21 +35,18 @@ tasks.whenTaskAdded { task ->
     task.ext.srcDir = 'src/main/java'
 }
 
-<<<<<<< HEAD
-task task1
 
 task1 {
     doFirst {
         println "Hello, World!"
     }
-=======
+
 task assemble {
    ./gradlew assemble
 }
 
 task task1 {
     println "Some string"
->>>>>>> eefd21caad3d219ff340aa8884bdbe99e2057029
 }
 
 //None of this does anything as of yet
