@@ -35,8 +35,7 @@ tasks.whenTaskAdded { task ->
     task.ext.srcDir = 'src/main/java'
 }
 
-
-
 //None of this does anything as of yet
 
 //Modify to make swag
+
