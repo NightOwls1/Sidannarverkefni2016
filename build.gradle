@@ -26,8 +26,8 @@ dependencies {
 //MODIFY
 jar {
     manifest {
-        attributes('Main-Class': '/TicTacToe/src/Main.java')
-        //"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+        attributes('Main-Class': 'MODIFY')
+        //'Class-Path': configurations.compile.collect { it.getName() }.join(' '))
     }
 }
 
