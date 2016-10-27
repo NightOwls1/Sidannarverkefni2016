@@ -36,6 +36,10 @@ tasks.whenTaskAdded { task ->
     task.ext.srcDir = 'src/main/java'
 }
 
+task assemble {
+    gradle assemble
+}
+
 task task1 {
     println "Some string"
 }
