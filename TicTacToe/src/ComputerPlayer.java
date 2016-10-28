@@ -16,6 +16,7 @@ public class ComputerPlayer {
 		board = game.getBoard();
 		emptyTiles = new int[3][3];
 	}
+	public String getSymbol() { return symbol; }
 	public int[][] getEmptyTiles(){ return emptyTiles; }
 	public void checkEmptyTiles(){
 		for(int i=0; i<3; i++){
@@ -29,10 +30,14 @@ public class ComputerPlayer {
 				
 	}
 	public int[][] oponentsTiles(){
+		checkEmptyTiles();
+		board = game.getBoard();
+	//	board.showBoard();
+		
 		int[][] result = new int[3][3];
 		for(int i=0; i<3; i++){
 			for(int j=0; j<3; j++){
-				if(emptyTiles[i][j] == 1){
+				if(emptyTiles[i][j] == 0){
 					if(board.getArray()[i][j].contains(game.getPlayers()[0].getSymbol()))
 						result[i][j] = 1;
 					else
