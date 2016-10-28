@@ -3,7 +3,7 @@
 
 **Source Control**
 
- * Það þarf að hafa aðgang að [Git](www.github.com). Verkefnið er hýst á GitHub. 
+ * Það þarf að hafa aðgang að [Git](https://www.github.com). Verkefnið er hýst á GitHub. 
    Til þess að geta nálgast verkefnið þá þarf að fara 
    inná git repositoryið og klóna eftirfarandi slóð:
    https://github.com/NightOwls1/Sidannarverkefni2016.git
