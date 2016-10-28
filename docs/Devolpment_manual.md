@@ -1,20 +1,28 @@
 ﻿##Handbók Hönnuðar/Forritara (Development manual) :bowtie:
+Það sem þarf til þess að keyra forritið á hreinni vél.
 
-#####Ef þú ert ekki þegar notandi af Git, farðu þá eftir þessum leiðbeiningum:
+**Source Control**
 
-	1. Þú þarft að hlaða niður og setja upp nýjustu útgáfu af "GitHub Desktop"(https://desktop.github.com). 
-	   - Inná þessari slóð getur þú fundið þá útgáfu af git sem þú þarf að setja upp í tölvunni þinni.
-	2. Opnaðu git skelina í tölvunni.
-	3. Veldu þér notendanafn fyrir git. Skrifaðu allt á eftir $ hérna:
-![](img/git.1.JPG?raw=true)
+ * Það þarf að hafa aðgang að Git(www.github.com). Verkefnið er hýst á GitHub. 
+   Til þess að geta nálgast verkefnið þá þarf að fara 
+   inná git repositoryið og klóna eftirfarandi slóð:
+   https://github.com/NightOwls1/Sidannarverkefni2016.git
 
-	4. Sláðu inn vefpóstfangið þitt sem mun tengjast þínum git breytingum. Skrifaðu allt á eftir $ hérna:
-![](img/git.2.JPG?raw=true)
+ * Næst þarf að fara inná skelina og skrifa skipunina: 
+   git clone (og svo slóðina hér að ofan).
 
 
-Til þess að geta unnið í verkefninu þarft þú að vera búin(n) að fá aðgang inná git repositoryið. Þú ferð inn á www.github.com og klónar
-eftirfarandi slóð inn á þína skel:
-https://github.com/NightOwls1/Sidannarverkefni2016.git
+
+**Build Environment**
+
+ * Það þarf að hafa Java JDK 8 uppsett á tölvunni.
+ * Heroku ???
+
+**Skipanir**
+
+ * gradle skipanir ???
+
+
 
 Ef þú þarf meiri hjálp þá hefur þú samband við Kristinn "Scrum master" 
 síminn hans er S: 6977472.
