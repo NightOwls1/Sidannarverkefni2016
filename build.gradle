@@ -1,4 +1,4 @@
-// Apply the java plugin to add support for Java
+// Apply the application plugin to add support for Java and more
 apply plugin: 'application'
 description = 'TicTacToe'
 
@@ -19,8 +19,8 @@ dependencies {
 mainClassName = "mainPkg.Main"
 
 sourceSets {
-    main.java.srcDir "src/main"
-    test.java.srcDir "src/test"    
+    main.java.srcDir "TicTacToe/src/mainPkg/Main"
+    test.java.srcDir "TicTacToe/src/mainPgk/UnitTestTest"    
 }
 
 task stage {
