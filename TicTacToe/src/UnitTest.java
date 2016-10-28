@@ -59,8 +59,14 @@ public class UnitTest {
 			result += "Player move Successfull! \n";		
 		else
 			result += ":( player move failed \n";
+/* ###################### UPDATED MAKE MOVE #################*/
+		if(testCheckEmptyTiles())
+			result += "Check Empty Tiles Successfull! \n";		
+		else
+			result += ":( Check Empty Tiles failed \n";
 		return result;
 	}
+	
 	public String generateTestSet(String testCase)
 	{
 		testStr.concat(testCase);
@@ -325,6 +331,66 @@ public class UnitTest {
 				
 				
 		return flag;
+	}
+	public boolean testCheckEmptyTiles(){
+		boolean flag = true;
+		game = new TicTacToe();
+		game.setPlayers("X");
+		ComputerPlayer cp = new ComputerPlayer(game);
+		cp.checkEmptyTiles();
+		for(int i=0; i<3; i++){
+			for(int j=0; j<3; j++){
+				if(cp.getEmptyTiles()[i][j] == 0)
+					flag = false;
+			}
+				
+		}
+		Integer[] move = new Integer[9];
+		
+		move[0] = Integer.valueOf(10);
+		move[1] = Integer.valueOf(11);
+		move[2] = Integer.valueOf(12);
+		move[3] = Integer.valueOf(20);
+		move[4] = Integer.valueOf(21);
+		move[5] = Integer.valueOf(22);
+		move[6] = Integer.valueOf(30);
+		move[7] = Integer.valueOf(31);
+		move[8] = Integer.valueOf(32);
+
+		game.getBoard().makeMove(move[0], "O");
+		game.getBoard().makeMove(move[1], "X");
+		game.getBoard().makeMove(move[2], "O");
+		game.getBoard().makeMove(move[3], "X");
+		
+		boolean flag1 = true;
+		cp.checkEmptyTiles();
+		if((cp.getEmptyTiles()[0][0] == 1) ||
+				(cp.getEmptyTiles()[0][1] == 1)||
+				(cp.getEmptyTiles()[0][2] == 1)||
+				(cp.getEmptyTiles()[1][0] == 1))
+				flag1 = false;
+		
+		boolean flag2 = true;
+		game.getBoard().makeMove(move[4], "O");
+		game.getBoard().makeMove(move[5], "X");
+		game.getBoard().makeMove(move[6], "O");
+		game.getBoard().makeMove(move[7], "X");
+		game.getBoard().makeMove(move[8], "X");
+		
+		cp.checkEmptyTiles();
+		//game.getBoard().showBoard();
+		for(int i=0; i<3; i++){
+			for(int j=0; j<3; j++){
+				if(cp.getEmptyTiles()[i][j] == 1){
+					System.err.println(i + " " + j + " is zero");
+					flag2 = false;					
+				}
+
+			}
+		}
+			
+//		System.err.println(flag +" " + flag1 + " " + flag2);
+		return flag && flag1 && flag2;
 	}
 
 }
