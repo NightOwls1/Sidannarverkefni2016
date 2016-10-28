@@ -1,7 +1,49 @@
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'mainPkg.Main'
+
+// tag::repositories[]
+repositories {
+    jcenter()
+}
+// end::repositories[]
+
+// tag::jar[]
+jar {
+    baseName = 'gs-gradle'
+    version =  '0.1.0'
+}
+// end::jar[]
+
+// tag::dependencies[]
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile "joda-time:joda-time:2.2"
+    testCompile "junit:junit:4.12"
+}
+// end::dependencies[]
+
+// tag::wrapper[]
+// end::wrapper[]
+
+
+
+
+
+
+
+
+/*
 // Apply the java plugin to add support for Java
 apply plugin: 'application'
 description = 'TicTacToe'
-
+apply plugin: 'java'
+apply plugin: 'eclipse'
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
@@ -21,12 +63,12 @@ dependencies {
 
 //Create an executable jar file
 //MODIFY
-/*jar {
+jar {
     manifest {
-        attributes('Main-Class': 'MODIFY')
-        //'Class-Path': configurations.compile.collect { it.getName() }.join(' '))
+        attributes('Main-Class': 'mainPkg.Main')
+//        'Class-Path': configurations.compile.collect { it.getName() }.join(' '))
     }
-}*/
+}
 
 tasks.whenTaskAdded { task ->
     task.ext.srcDir = 'src/main/java'
@@ -39,4 +81,6 @@ task stage {
 //None of this does anything as of yet
 
 //Modify to make swag
+
+*/
 
