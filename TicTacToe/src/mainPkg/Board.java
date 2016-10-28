@@ -1,3 +1,4 @@
+package mainPkg;
 
 public class Board {
 	private String[][] board;

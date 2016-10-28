@@ -1,6 +1,6 @@
-import java.io.BufferedReader;
+package mainPkg;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 
 public class Main {
@@ -9,7 +9,7 @@ public class Main {
 		UnitTest ut = new UnitTest();
 		System.out.println(ut.testMain());
 		
-/*		TicTacToe game = new TicTacToe();
+		TicTacToe game = new TicTacToe();
 		try {
 			game.multiPlayerPlay();
 		} catch (InterruptedException e) {
@@ -19,6 +19,6 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-*/
+
 	}
 }

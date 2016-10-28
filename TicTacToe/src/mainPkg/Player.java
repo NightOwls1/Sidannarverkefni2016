@@ -1,3 +1,4 @@
+package mainPkg;
 
 public class Player {
 	private boolean winner;

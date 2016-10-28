@@ -1,3 +1,4 @@
+package mainPkg;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,14 +7,12 @@ public class TicTacToe {
 	private Board board;
 	private Player player1;
 	private Player player2;
-	private ComputerPlayer cPlayer;
-	private int mode;
+	//private ComputerPlayer cPlayer;
 	private Player[] players;
 	
 	public TicTacToe()
 	{
 		board = new Board(this);
-		mode = 0;
 		players = new Player[2];
 	}
 	public Board getBoard(){ return board; }
@@ -57,8 +56,8 @@ public class TicTacToe {
 				//System.in.read();
 				//System.out.println(move);
 				player1.makeMove(Integer.valueOf(move));
+				System.out.println(player1.win());
 				board.showBoard();
-				//System.out.println(game.win());
 				if(keepPlaying()){
 				
 				
@@ -66,12 +65,13 @@ public class TicTacToe {
 				move = br.readLine();
 				//System.out.println(move);
 				player2.makeMove(Integer.valueOf(move));
+				System.out.println(player1.win());
 				}
 				board.showBoard();
 
 			}
-
-
+			System.out.println();
+			
 		}catch(IOException e1){
 			System.err.println(e1.getMessage());
 			System.err.println(e1.getStackTrace());
