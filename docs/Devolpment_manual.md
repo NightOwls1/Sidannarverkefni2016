@@ -19,7 +19,6 @@ https://github.com/NightOwls1/Sidannarverkefni2016.git
 Ef þú þarf meiri hjálp þá hefur þú samband við Kristinn "Scrum master" 
 síminn hans er S: 6977472.
 
-Other necessary dependencieds
 
 Gangi þér vel :smiley:
 
