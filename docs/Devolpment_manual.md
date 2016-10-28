@@ -16,11 +16,15 @@
 **Build Environment**
 
  * Það þarf að hafa Java JDK 8 uppsett á tölvunni.
+
  * Heroku ???
 
 **Skipanir**
 
- * gradle skipanir ???
+ * Til þess að smíða(build) kóðabúta og prófin
+   * sh ./gradlew <task> (Fyrir Linux, Mac OX S)
+   * sh gradlew <task> (fyrir Windows sem notar gradlew.bat batch skrá)
+
 
 
 

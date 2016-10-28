@@ -8,14 +8,23 @@
 @rem Set local scope for the variables with windows NT shell
 if "%OS%"=="Windows_NT" setlocal
 
+<<<<<<< HEAD
 @rem Add default JVM options here. You can also use JAVA_OPTS and HUGB_OPTS to pass JVM options to this script.
 set DEFAULT_JVM_OPTS=
 
+=======
+>>>>>>> 67fcacd91515051b817ed9bc02167658f2b478fa
 set DIRNAME=%~dp0
 if "%DIRNAME%" == "" set DIRNAME=.
 set APP_BASE_NAME=%~n0
 set APP_HOME=%DIRNAME%..
 
+<<<<<<< HEAD
+=======
+@rem Add default JVM options here. You can also use JAVA_OPTS and HUGB_OPTS to pass JVM options to this script.
+set DEFAULT_JVM_OPTS=
+
+>>>>>>> 67fcacd91515051b817ed9bc02167658f2b478fa
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
 
@@ -46,10 +55,16 @@ echo location of your Java installation.
 goto fail
 
 :init
+<<<<<<< HEAD
 @rem Get command-line arguments, handling Windowz variants
 
 if not "%OS%" == "Windows_NT" goto win9xME_args
 if "%@eval[2+2]" == "4" goto 4NT_args
+=======
+@rem Get command-line arguments, handling Windows variants
+
+if not "%OS%" == "Windows_NT" goto win9xME_args
+>>>>>>> 67fcacd91515051b817ed9bc02167658f2b478fa
 
 :win9xME_args
 @rem Slurp the command line arguments.
@@ -60,16 +75,23 @@ set _SKIP=2
 if "x%~1" == "x" goto execute
 
 set CMD_LINE_ARGS=%*
+<<<<<<< HEAD
 goto execute
 
 :4NT_args
 @rem Get arguments from the 4NT Shell from JP Software
 set CMD_LINE_ARGS=%$
+=======
+>>>>>>> 67fcacd91515051b817ed9bc02167658f2b478fa
 
 :execute
 @rem Setup the command line
 
+<<<<<<< HEAD
 set CLASSPATH=%APP_HOME%\lib\gs-gradle-0.1.0.jar;%APP_HOME%\lib\joda-time-2.2.jar
+=======
+set CLASSPATH=%APP_HOME%\lib\Hugb.jar;%APP_HOME%\lib\slf4j-api-1.7.21.jar
+>>>>>>> 67fcacd91515051b817ed9bc02167658f2b478fa
 
 @rem Execute Hugb
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %HUGB_OPTS%  -classpath "%CLASSPATH%" mainPkg.Main %CMD_LINE_ARGS%

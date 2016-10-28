@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -40,6 +41,9 @@ dependencies {
 
 /*
 // Apply the java plugin to add support for Java
+=======
+// Apply the application plugin to add support for Java and more
+>>>>>>> 67fcacd91515051b817ed9bc02167658f2b478fa
 apply plugin: 'application'
 description = 'TicTacToe'
 apply plugin: 'java'
@@ -47,8 +51,6 @@ apply plugin: 'eclipse'
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
-    //github { url "https://github.com/NightOwls1/Sidannarverkefni2016.git" }
-    maven { url "https://jitpack.io" }
     jcenter()
 }
 
@@ -56,11 +58,11 @@ repositories {
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'
-    compile 'com.github.NightOwls1:Sidannarverkefni2016.git'
     // Declare the dependency for your favourite test framework you want to use in your tests.
     testCompile 'junit:junit:4.12'
 }
 
+<<<<<<< HEAD
 //Create an executable jar file
 //MODIFY
 jar {
@@ -72,15 +74,37 @@ jar {
 
 tasks.whenTaskAdded { task ->
     task.ext.srcDir = 'src/main/java'
+=======
+mainClassName = "mainPkg.Main"
+
+sourceSets {
+    main.java.srcDir "src/main"
+    test.java.srcDir "src/test"    
+>>>>>>> 67fcacd91515051b817ed9bc02167658f2b478fa
 }
 
 task stage {
     dependsOn installDist
 }
 
-//None of this does anything as of yet
+task hello {
+    println "Hello, World!"
+}
 
-//Modify to make swag
+//Create an executable jar file
+//MODIFY
+jar {
+    manifest.attributes "Main-Class": "mainPkg.Main"
+    manifest.attributes "Classpath": "."
+}
 
+
+<<<<<<< HEAD
 */
 
+=======
+
+/*tasks.whenTaskAdded { task ->
+    task.ext.srcDir = 'src/main/java'
+}*/
+>>>>>>> 67fcacd91515051b817ed9bc02167658f2b478fa
