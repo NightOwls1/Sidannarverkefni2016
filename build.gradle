@@ -18,6 +18,18 @@ dependencies {
 
 mainClassName = "mainPkg.Main"
 
+sourceSets {
+    main.java.srcDir "src/main"
+    test.java.srcDir "src/test"    
+}
+
+task stage {
+    dependsOn installDist
+}
+
+
+
+
 //Create an executable jar file
 //MODIFY
 /*jar {
@@ -30,8 +42,3 @@ mainClassName = "mainPkg.Main"
 /*tasks.whenTaskAdded { task ->
     task.ext.srcDir = 'src/main/java'
 }*/
-
-task stage {
-    dependsOn installDist
-}
-
