@@ -15,21 +15,11 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-//Create an executable jar file
-//MODIFY
-jar {
-    manifest {
-        attributes('Main-Class': 'TicTacToe.src.mainPkg.Main')
-//        'Class-Path': configurations.compile.collect { it.getName() }.join(' '))
-    }
-}
-
-
-mainClassName = "TicTacToe.src.mainPkg.Main"
+mainClassName = "mainPkg.Main"
 
 sourceSets {
-    main.java.srcDir "TicTacToe/bin/mainPkg/Main"
-    test.java.srcDir "TicTacToe/bin/mainPkg/UnitTestTest"    
+    main.java.srcDir "TicTacToe/src/mainPkg"
+    test.java.srcDir "TicTacToe/src/tests"    
 }
 
 task stage {
@@ -48,6 +38,7 @@ jar {
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
+    exclude('TicTacToe/src/mainPkg/UnitTestTest')
 }
 
 
