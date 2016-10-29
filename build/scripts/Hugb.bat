@@ -66,7 +66,7 @@ set CMD_LINE_ARGS=%*
 set CLASSPATH=%APP_HOME%\lib\Hugb.jar;%APP_HOME%\lib\slf4j-api-1.7.21.jar
 
 @rem Execute Hugb
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %HUGB_OPTS%  -classpath "%CLASSPATH%" TicTacToe.src.mainPkg.Main %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %HUGB_OPTS%  -classpath "%CLASSPATH%" mainPkg.Main %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell
