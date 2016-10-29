@@ -19,17 +19,17 @@ dependencies {
 //MODIFY
 jar {
     manifest {
-        attributes('Main-Class': 'mainPkg.Main')
+        attributes('Main-Class': 'TicTacToe.src.mainPkg.Main')
 //        'Class-Path': configurations.compile.collect { it.getName() }.join(' '))
     }
 }
 
 
-mainClassName = "mainPkg.Main"
+mainClassName = "TicTacToe.src.mainPkg.Main"
 
 sourceSets {
-    main.java.srcDir "TicTacToe/bin/Main"
-    test.java.srcDir "TicTacToe/bin/UnitTestTest"    
+    main.java.srcDir "TicTacToe/bin/mainPkg/Main"
+    test.java.srcDir "TicTacToe/bin/mainPkg/UnitTestTest"    
 }
 
 task stage {
@@ -43,7 +43,7 @@ task hello {
 //Create an executable jar file
 //MODIFY
 jar {
-    manifest.attributes "Main-Class": "mainPkg.Main"
+    manifest.attributes "Main-Class": "TicTacToe.src.mainPkg.Main"
     manifest.attributes "Classpath": "TicTacToe.classpath"
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
