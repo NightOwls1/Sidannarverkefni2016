@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp TicTacToe/src/mainPkg/Main TicTacToe
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/Hugb.jar
