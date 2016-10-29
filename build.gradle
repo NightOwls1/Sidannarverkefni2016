@@ -26,6 +26,10 @@ task stage {
     dependsOn installDist
 }
 
+task cbuild {
+    dependsOn clean, build
+}
+
 task hello {
     println "Hello, World!"
 }
