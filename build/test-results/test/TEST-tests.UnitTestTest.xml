@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.UnitTestTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-10-29T14:15:46" hostname="clients-pool-1.nat.ru.is" time="0.005">
+<testsuite name="tests.UnitTestTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-10-29T14:19:04" hostname="clients-pool-1.nat.ru.is" time="0.006">
   <properties/>
-  <testcase name="test" classname="tests.UnitTestTest" time="0.005"/>
+  <testcase name="test" classname="tests.UnitTestTest" time="0.006"/>
   <system-out><![CDATA[--------
 O X O 
 X O X 
