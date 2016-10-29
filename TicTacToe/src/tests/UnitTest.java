@@ -1,5 +1,5 @@
-package mainPkg;
-
+package tests;
+import mainPkg.*;
 
 public class UnitTest {
 	public String testStr;
@@ -161,6 +161,8 @@ public class UnitTest {
 		boolean flag1 = false;
 		boolean flag2 = false;
 		boolean flag3 = false;
+		game = new TicTacToe();
+		testMakeMove();
 		game.getBoard().showBoard();
 		if(game.getBoard().boardFull())
 			flag1 = true;
@@ -228,10 +230,10 @@ public class UnitTest {
 		game.getBoard().makeMove(Integer.valueOf(11), "O");
 		game.getBoard().makeMove(Integer.valueOf(21), "X");
 		game.getBoard().makeMove(Integer.valueOf(12), "O");
-		if(game.getBoard().horizontal())
+		if(game.getBoard().diagonal())
 			flag1 = false;
 		game.getBoard().makeMove(Integer.valueOf(32), "X");	
-		if(!game.getBoard().horizontal())
+		if(!game.getBoard().diagonal())
 			flag2 = false;
 
 		return flag1 && flag2;

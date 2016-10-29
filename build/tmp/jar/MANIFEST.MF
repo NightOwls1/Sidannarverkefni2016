@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Classpath: TicTacToe.classpath
-Main-Class: TicTacToe.src.mainPkg.Main
+Main-Class: mainPkg.Main
 

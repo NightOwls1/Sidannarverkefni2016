@@ -65,7 +65,7 @@ public class TicTacToe {
 				move = br.readLine();
 				//System.out.println(move);
 				player2.makeMove(Integer.valueOf(move));
-				System.out.println(player1.win());
+				System.out.println(player2.win());
 				}
 				board.showBoard();
 
