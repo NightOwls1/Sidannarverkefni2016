@@ -26,9 +26,15 @@ task stage {
     dependsOn installDist
 }
 
+libsDirName = '../../Hugb2016'
+
+task del {
+    delete('../../Hugb2016')
+}
+
 task cbuild {
     println "cleaning and building..."
-    dependsOn clean, build
+    dependsOn del, clean, build
 }
 
 task hello {
@@ -43,7 +49,7 @@ jar {
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
-    exclude('TicTacToe/src/mainPkg/UnitTestTest')
+    //exclude('TicTacToe/src/mainPkg/UnitTestTest')
 }
 
 
