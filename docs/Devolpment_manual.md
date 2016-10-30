@@ -23,8 +23,8 @@
 **Skipanir**
 
  * Til þess að smíða(build) kóðabúta og prófin
-   * sh ./gradlew build <task> (Fyrir Linux, Mac OX S)
-   * sh gradlew build <task> (fyrir Windows sem notar gradlew.bat batch skrá)
+   * sh ./gradlew -q cbuild (Fyrir Linux, Mac OX S)
+   * sh gradlew -q cbuild (fyrir Windows sem notar gradlew.bat batch skrá)
 
 
 
