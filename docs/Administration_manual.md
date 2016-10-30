@@ -7,9 +7,9 @@ Upplýsingar fyrir þann sem ætlar að spila leikinn TicTacToe:
 
    1. Hlaða niður Hugb.jar skránni
    
-   2. Opna skel í tölvunni, og fara þar í möppuna þar sem Hug.jar skráin er staðsett.
+   2. Opna skel í tölvunni, og fara þar í möppuna þar sem Hugb.jar skráin er staðsett.
 
-   3. Skrifa skipunina: java -jar Hug.jar
+   3. Skrifa skipunina: java -jar Hugb.jar
 
    4. Byrja að spila TicTacToe  :)
 	
